@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('code', 50)->unique();
             $table->boolean('is_blank');
             $table->string('description', 255)->nullable();
-            $table->unsignedSmallInteger('price_cents');
+            $table->unsignedInteger('price_cents');
             $table->boolean('is_active')->default(true);
             $table->softDeletes();
             $table->timestamps();
