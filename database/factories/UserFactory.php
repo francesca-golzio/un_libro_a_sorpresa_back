@@ -28,7 +28,6 @@ class UserFactory extends Factory
         $surname = fake()->lastName();
 
         return [
-            'role' => 'user',
             'name' => $name,
             'surname' => $surname,
             'email' => strtolower("{$name}{$surname}@") . fake()->safeEmailDomain(),
