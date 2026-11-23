@@ -18,13 +18,14 @@ return new class extends Migration
             $table->string('code', 50)->unique();
             $table->string('slug', 255)->unique();
             $table->string('type', 100);
+            $table->string('description', 255)->nullable();
             $table->unsignedInteger('price_cents');
             $table->boolean('is_active')->default(true);
             $table->softDeletes();
             $table->timestamps();
         });
 
-        /* Add check constraint for product type */
+        /* Add check constraint for product type (same as BoxType Enum) */
         DB::statement("ALTER TABLE products ADD CONSTRAINT products_type_check CHECK (type IN ('bookmark', 'extra'))");
 
     }

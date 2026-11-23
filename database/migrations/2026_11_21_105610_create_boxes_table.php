@@ -25,6 +25,7 @@ return new class extends Migration
             $table->timestamps();
         });
 
+        /* Add check constraint for box type */
         DB::statement("ALTER TABLE boxes ADD CONSTRAINT boxes_type_check CHECK (type IN ('subscription', 'gift', 'single'))");
     }
 
