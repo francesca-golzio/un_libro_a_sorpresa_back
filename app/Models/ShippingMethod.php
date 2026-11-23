@@ -8,7 +8,6 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 class ShippingMethod extends Model
 {
-    use SoftDeletes;
     use HasFactory;
 
     /**
