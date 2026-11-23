@@ -25,7 +25,7 @@ return new class extends Migration
             $table->timestamps();
         });
 
-        /* Add check constraint for product type (same as BoxType Enum) */
+        /* Add check constraint for product type (same as ProductType Enum) */
         DB::statement("ALTER TABLE products ADD CONSTRAINT products_type_check CHECK (type IN ('bookmark', 'extra'))");
 
     }
