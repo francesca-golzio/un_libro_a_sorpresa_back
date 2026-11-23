@@ -31,7 +31,7 @@ class AddressFactory extends Factory
             'postal_code' => fake()->postcode(),
             'street' => fake()->streetName(),
             'street_number' =>  fake()->buildingNumber(),
-            'address_line_2' =>  '',
+            'address_line_2' =>  null,
             'phone' =>  fake()->phoneNumber(),
             'is_default_shipping' => false,
             'is_default_billing' => false,
