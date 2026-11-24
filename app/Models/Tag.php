@@ -13,4 +13,13 @@ class Tag extends Model
         'name',
         'slug'
     ];
+
+    /**
+     * Get the books associated with the tag.
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany|\App\Models\Book[]
+     */
+    public function books()
+    {
+        return $this->belongsToMany(Book::class);
+    }
 }

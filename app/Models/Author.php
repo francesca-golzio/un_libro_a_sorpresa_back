@@ -13,4 +13,13 @@ class Author extends Model
         'name',
         'surname',
     ];
+
+    /**
+     * Get the books associated with the author.
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany|\App\Models\Book[]
+     */
+    public function books()
+    {
+        return $this->belongsToMany(Book::class);
+    }
 }

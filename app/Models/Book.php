@@ -32,4 +32,22 @@ class Book extends Model
             'publication_year' => 'integer',
         ];
     }
-};
+
+    /**
+     * Get the authors associated with the book.
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany|\App\Models\Author[]
+     */
+    public function authors()
+    {
+        return $this->belongsToMany(Author::class);
+    }
+
+    /**
+     * Get the tags associated with the book.
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany|\App\Models\Tag[]
+     */
+    public function tags()
+    {
+        return $this->belongsToMany(Tag::class);
+    }
+}
