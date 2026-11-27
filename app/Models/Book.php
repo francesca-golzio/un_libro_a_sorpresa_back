@@ -50,4 +50,13 @@ class Book extends Model
     {
         return $this->belongsToMany(Tag::class);
     }
+
+    /**
+     * Get the digital expansions associated with the book.
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany|\App\Models\DigitalExpansion[]
+     */
+    public function DigitalExpansion()
+    {
+        return $this->hasMany(DigitalExpansion::class);
+    }
 }
