@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Book extends Model
@@ -53,10 +54,19 @@ class Book extends Model
 
     /**
      * Get the digital expansions associated with the book.
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany|\App\Models\DigitalExpansion[]
+     * @return HasMany
      */
     public function DigitalExpansion()
     {
         return $this->hasMany(DigitalExpansion::class);
+    }
+
+    /**
+     * Get the images that belong to the book.
+     * @return HasMany
+    */
+    public function images()
+    {
+        return $this->hasMany(Image::class);
     }
 }

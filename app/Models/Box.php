@@ -5,6 +5,7 @@ namespace App\Models;
 use App\Enums\BoxType;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Box extends Model
@@ -36,5 +37,14 @@ class Box extends Model
             'is_active' => 'boolean',
             'type' => BoxType::class,
         ];
+    }
+
+    /**
+     * Get the images that belong to the box.
+     * @return HasMany
+    */
+    public function images()
+    {
+        return $this->hasMany(Image::class);
     }
 }

@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 class PackagingOption extends Model
@@ -32,5 +33,14 @@ class PackagingOption extends Model
         return [
             'is_active' => 'boolean'
         ];
+    }
+
+    /**
+     * Get the images that belong to the packaging option.
+     * @return HasMany
+    */
+    public function images()
+    {
+        return $this->hasMany(Image::class);
     }
 }

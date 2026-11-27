@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 class CardModel extends Model
@@ -32,5 +33,14 @@ class CardModel extends Model
             'is_blank' => 'boolean',
             'is_active' => 'boolean',
         ];
+    }
+
+    /**
+     * Get the images that belong to the card model.
+     * @return HasMany
+    */
+    public function images()
+    {
+        return $this->hasMany(Image::class);
     }
 }

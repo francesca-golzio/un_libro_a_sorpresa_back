@@ -5,6 +5,7 @@ namespace App\Models;
 use App\Enums\ProductType;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Product extends Model
@@ -36,5 +37,14 @@ class Product extends Model
             'is_active' => 'boolean',
             'type' => ProductType::class,
         ];
+    }
+
+    /**
+     * Get the images that belong to the product.
+     * @return HasMany
+    */
+    public function images()
+    {
+        return $this->hasMany(Image::class);
     }
 }
